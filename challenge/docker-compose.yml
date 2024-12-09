@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_NAME: postgres
+      POSTGRES_DB: your_database_name
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - 5434:5434
+      - 5432:5432
+    network_mode: host
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bin/dev
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:your_password@localhost:5432/your_database_name
+    tty: true
+    network_mode: host

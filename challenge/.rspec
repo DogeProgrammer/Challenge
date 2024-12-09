@@ -1,0 +1,6 @@
+--default-path spec
+--profile
+--format documentation
+--format progress
+--format ParallelTests::RSpec::SummaryLogger --out spec_summary.log
+--format ParallelTests::RSpec::FailuresLogger --out spec_failing.log

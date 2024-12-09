@@ -1,0 +1,37 @@
+# This is the top-level configuration
+AllCops:
+  # Your preferred Ruby version
+  TargetRubyVersion: 3.3.0
+
+  # Exclude some commonly ignored folders
+  Exclude:
+    - "vendor/**/*"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+
+# Individual "Cop" sections for specific style rules
+Style/Documentation:
+  Enabled: false # Turn off documentation checks for now
+
+Metrics/LineLength:
+  Max: 200 # Set a preferred maximum line length
+
+Metrics/MethodLength:
+  Max: 50 # Set a preferred maximum method length
+
+Lint/RedundantCopDisableDirective:
+  Enabled: false # We don't want to litter the code with disable comments
+
+Metrics/AbcSize:
+  Max: 173
+
+Metrics/CyclomaticComplexity:
+  Max: 53
+
+Metrics/PerceivedComplexity:
+  Max: 54
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "db/**/*"
